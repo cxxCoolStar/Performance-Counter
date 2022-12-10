@@ -1,46 +1,12 @@
 spring:
   application:
     name: performance-counter
-  datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.1.54:3306/takin_chain?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false&maxReconnects=15000
-    username: root
-    password: shulie@2020
-    druid:
-      # 检查池中的连接是否仍可用的 SQL 语句,druid会连接到数据库执行该SQL
-      validationQuery: select 'x'
-      # 当程序请求连接，池在分配连接时，是否先检查该连接是否有效
-      test-while-idle: true
-      # 程序 申请 连接时,进行连接有效性检查
-      test-on-borrow: false
-      # 开启缓存SQL结果
-      pool-prepared-statements: true
-      # 每个连接最多缓存多少个SQL
-      max-pool-prepared-statement-per-connection-size: 20
-      # 配置插件
-      filters: stat,wall,slf4j
-      # 通过connectProperties属性来打开mergeSql功能；记录慢SQL
-      connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
-      # 初始化线程池连接个数
-      initial-size: 10
-      # 最小空闲连接10
-      min-idle: 10
-      # 最大连接数200
-      max-active: 200
-      # 最大等待时间，单位毫秒
-      max-wait: 5000
-      # 检查空闲连接的频率，单位毫秒, 非正整数时表示不进行检查
-      time-between-eviction-runs-millis: 60000
-      # 连接池中某个连接的空闲时长达到 N 毫秒后, 连接池在下次检查空闲连接时，将回收该连接,要小于防火墙超时设置
-      min-evictable-idle-time-millis: 300000
-      query-timeout: 10000
-
   redis:
     database: 1
     client-type: lettuce
-    host: 192.168.1.151
-    password: pamirs@2020
+    host: 150.158.133.220
+    port: 6379
+    password:
     lettuce:
       pool:
         # 最大等待时间

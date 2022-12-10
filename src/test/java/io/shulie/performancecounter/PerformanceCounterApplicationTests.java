@@ -11,6 +11,9 @@ import io.shulie.performancecounter.viewer.ConsoleViewer;
 import io.shulie.performancecounter.viewer.EmailViewer;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
+
+import javax.annotation.Resource;
 
 @SpringBootTest
 class PerformanceCounterApplicationTests {
@@ -21,9 +24,10 @@ class PerformanceCounterApplicationTests {
         Aggregator aggregator = new Aggregator(); // 定时触发统计并将结果显示到终端
         ConsoleViewer consoleViewer = new ConsoleViewer();
         ConsoleReporter consoleReporter = new ConsoleReporter(storage, aggregator, consoleViewer);
-        consoleReporter.startRepeatedReport(60, 60); // 定时触发统计并将结果输出到邮件
+        consoleReporter.startRepeatedReport(1, 6);
+        // 定时触发统计并将结果输出到邮件
         EmailViewer emailViewer = new EmailViewer();
-        emailViewer.addToAddress("wangzheng@xzg.com");
+        emailViewer.addToAddress("1848505943@qq.com");
         EmailReporter emailReporter = new EmailReporter(storage, aggregator, emailViewer);
         emailReporter.startDailyReport();
         // 收集接口访问数据
@@ -33,6 +37,8 @@ class PerformanceCounterApplicationTests {
         collector.recordRequest(new RequestInfo("register", 323, 12334));
         collector.recordRequest(new RequestInfo("login", 23, 12434));
         collector.recordRequest(new RequestInfo("login", 1223, 14234));
+
+
         try {
             Thread.sleep(100000);
         } catch (InterruptedException e) {

@@ -1,13 +1,10 @@
 package io.shulie.performancecounter.reporter;
 
-import com.google.gson.Gson;
 import io.shulie.performancecounter.aggregator.Aggregator;
 import io.shulie.performancecounter.model.RequestInfo;
-import io.shulie.performancecounter.model.RequestStat;
 import io.shulie.performancecounter.storage.MetricsStorage;
 import io.shulie.performancecounter.viewer.StatViewer;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executors;

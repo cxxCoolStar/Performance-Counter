@@ -3,7 +3,6 @@ package io.shulie.performancecounter.reporter;
 import io.shulie.performancecounter.aggregator.Aggregator;
 import io.shulie.performancecounter.model.RequestInfo;
 import io.shulie.performancecounter.model.RequestStat;
-import io.shulie.performancecounter.sender.EmailSender;
 import io.shulie.performancecounter.storage.MetricsStorage;
 import io.shulie.performancecounter.viewer.StatViewer;
 
