@@ -1,2 +1,11 @@
-# Performance-Counter
-This is a performance counter project.
+
+
+## 为什么做？
+为了统计接口性能，所以想做一个具备通用性强、扩展性好的接口性能计数器，争取做到导入就能用，后期支持注解。
+
+## 代办
+1. 将数据存储到redis
+
+2. 将一些魔法值改为配置
+
+3. 支持注解
