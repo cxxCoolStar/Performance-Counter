@@ -2,6 +2,7 @@ package io.shulie.performancecounter.viewer;
 
 import io.shulie.performancecounter.model.RequestStat;
 import io.shulie.performancecounter.sender.EmailSender;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,9 @@ import java.util.Map;
 /**
  * @author chenxingxing
  * @date 2022/12/9 10:00 下午
+ * 邮箱视图器
  */
+@Component("emailViewer")
 public class EmailViewer implements StatViewer {
 
     private EmailSender emailSender;

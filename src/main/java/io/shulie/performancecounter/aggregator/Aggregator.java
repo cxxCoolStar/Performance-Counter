@@ -2,6 +2,7 @@ package io.shulie.performancecounter.aggregator;
 
 import io.shulie.performancecounter.model.RequestInfo;
 import io.shulie.performancecounter.model.RequestStat;
+import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import java.util.*;
@@ -10,6 +11,7 @@ import java.util.*;
  * @author chenxingxing
  * @date 2022/12/9 10:55 下午
  */
+@Component
 public class Aggregator {
 
     public Map<String, RequestStat> aggregate(
@@ -103,10 +105,6 @@ public class Aggregator {
      * @return
      */
     private double percentile99(List<Double> dataset) {
-        return 0.0;
-    }
-
-    private double percentile(List<Double> dataset, double ratio) {
         return 0.0;
     }
 }

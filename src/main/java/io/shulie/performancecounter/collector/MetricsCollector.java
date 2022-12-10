@@ -3,7 +3,9 @@ package io.shulie.performancecounter.collector;
 import cn.hutool.core.util.StrUtil;
 import io.shulie.performancecounter.model.RequestInfo;
 import io.shulie.performancecounter.storage.MetricsStorage;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MetricsCollector {
   private MetricsStorage metricsStorage;//基于接口而非实现编程
 

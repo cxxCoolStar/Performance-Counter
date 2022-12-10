@@ -5,20 +5,27 @@ import io.shulie.performancecounter.model.RequestInfo;
 import io.shulie.performancecounter.model.RequestStat;
 import io.shulie.performancecounter.storage.MetricsStorage;
 import io.shulie.performancecounter.viewer.StatViewer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.util.*;
 
-public class EmailReporter {
+@Component("emailReporter")
+public class EmailReporter implements Reporter{
     private static final Long DAY_HOURS_IN_SECONDS = 86400L;
+
+    @Resource
     private MetricsStorage metricsStorage;
+
+    @Resource
     private Aggregator aggregator;
+
+    @Qualifier("emailViewer")
+    @Autowired
     private StatViewer viewer;
 
-    public EmailReporter(MetricsStorage metricsStorage, Aggregator aggregator, StatViewer viewer) {
-        this.metricsStorage = metricsStorage;
-        this.aggregator = aggregator;
-        this.viewer = viewer;
-    }
 
     public void startDailyReport() {
         Calendar calendar = Calendar.getInstance();
@@ -40,5 +47,10 @@ public class EmailReporter {
                 viewer.output(stats, startTimeInMillis, endTimeInMillis);
             }
         }, firstTime, DAY_HOURS_IN_SECONDS * 1000);
+    }
+
+    @Override
+    public void report() {
+        this.startDailyReport();
     }
 }

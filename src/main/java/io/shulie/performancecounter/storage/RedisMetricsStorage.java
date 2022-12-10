@@ -19,7 +19,7 @@ public class RedisMetricsStorage implements MetricsStorage {
     @Override
     public void saveRequestInfo(RequestInfo requestInfo) {
 
-//        String apiName = requestInfo.getApiName();
+        String apiName = requestInfo.getApiName();
 //        redisTemplate.opsForValue().set(apiName,requestInfo.toString());
     }
 
